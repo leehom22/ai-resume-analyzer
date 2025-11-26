@@ -45,8 +45,8 @@ const resume = () => {
             if(!imageBlob) return 
             const imageUrl = URL.createObjectURL(imageBlob)
             setImageUrl(imageUrl)
-
-            setFeedback(data.feeback)
+            console.log("feedback from resume.tsx is: ",data.feedback)
+            setFeedback(data.feedback)
             console.log({resumeUrl,imageUrl,feedback})
         }
         loadResume()
@@ -78,7 +78,7 @@ const resume = () => {
                         feedback ? (
                             <div className='flex flex-col gap-8 animate-in fade-in duration-1000'>
                                 <Summary feedback={feedback}/>
-                                <ATS score={feedback.ATS.score || 0} suggestion={feedback.padStart.tips || []}/>
+                                <ATS score={feedback.ATS.score || 0} suggestions={feedback.content.tips || []}/>
                                 <Details feedback={feedback}/>
                             </div>
                         ) : (
